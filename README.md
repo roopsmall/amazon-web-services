@@ -6,11 +6,13 @@ This is a collection of concise python samples for instantiating and managing AW
 2. [Attach Access Policy to User](#attach-access-policy-to-user)
 3. [Start EC2 Instance](#start-ec2-instance)
 4. [Terminate EC2 Instance](#terminate-ec2-instance)
+
 #### S3
 1. [Create S3 Bucket](#create-s3-bucket)
 2. [Attach Access Policy to User](#attach-access-policy-to-user)
 3. [Put file in S3 Bucket](#put-file-in-s3-bucket)
 4. [Delete Bucket](#delete-bucket)
+
 #### DynamoDB
 1. [Create DynamoDB User Policy](#create-dynamodb-user-policy)
 2. [Create Table](#create-table)
