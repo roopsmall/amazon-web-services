@@ -1,4 +1,4 @@
-# Concise Boto3 samples for common AWS services
+# Concise Boto3 Python examples for AWS
 This is a collection of concise python samples for instantiating and managing AWS compute infrastructure. Enjoy !
 
 #### IAM
@@ -34,12 +34,17 @@ If you want to run and manage all your AWS infrastructure via python scripts the
 }
 ```
 
-Calling the user root here is not glib; by creating a user with full access to all IAM resources you really are creating a user with imperial authority to manage your AWS resources! Here this comes with all the usual caveats and warnings omitted but you can read about them elsewhere. After creating a root user you can kiss the web UI goodbye and use boto3 and python for all subsequent tasks (hoorah!). Simply download the user's *access key* and *secret access key* and you're good to go.
+Calling the user root here is not glib; by creating a user with full access to all IAM resources you really are creating a user with imperial authority to manage your AWS resources! Here this comes with all the usual caveats and warnings omitted but you can read about them elsewhere. After creating a root user you can kiss the web UI goodbye and use boto3 and python for all subsequent tasks (hoorah!). Simply download the user's `access key` and `secret access key` and you're good to go.
 
 ### Create New User
 Here we're going to connect to the IAM service with boto3 as `root` and create a new user.
+
+[create_new_user.py](https://github.com/roopsmall/amazon-web-services/blob/master/create_new_user.py)
 ```python
-code
+import boto3, credentials
+id, psswd = credentials.id_and_psswd('user')
+client = boto3.client('iam', aws_access_key_id=id, aws_secret_access_key=psswd)
+print client.create_user(Path='/Analyst/', UserName='new_user1')
 ```
 
 ### Attach Access Policy to User
