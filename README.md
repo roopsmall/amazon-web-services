@@ -21,7 +21,7 @@ This is a collection of concise python samples for instantiating and managing AW
 3. [Update Table](#update-table)
 
 ## IAM
-If you want to run and manage all your AWS infrastructure via python scripts then Amazon's Identity Access Management (IAM) service is the first component of the AWS infrastructure you should be aware of. Each time you start, update or end a service the boto3 call to do so _must_ be made by a user with the appropriate IAM permissions. To do this go to the AWS web console and create a new user with permission to create further IAM users and permissions. Since on AWS permissions are enocded in _policies_ I have done this by creating a new user called `root` and I've attached the `IAMFullAccess` policy to this user:
+If you want to run and manage all your AWS infrastructure via python scripts then Amazon's Identity Access Management (IAM) service is the first component of AWS you should become aware of. Each time you start, update and end a service the boto3 command to do so _must_ be made by a user with the appropriate IAM permissions; **go to the AWS web console and create a new user with permission to create further IAM users and permissions.** Since on AWS permissions are encoded in _policies_ I have done this by creating a new user called `root` and I've attached the `IAMFullAccess` policy to this user:
 
 ```
 {
@@ -34,20 +34,19 @@ If you want to run and manage all your AWS infrastructure via python scripts the
 }
 ```
 
-Calling the user root here is not glib; by creating a user with full access to all IAM resources you really are creating a user with imperial authority to manage your AWS resources! Here this comes with all the usual caveats and warnings omitted but you can read about them elsewhere.
-After creating a root user you can kiss the web UI goodbye and use boto3 and python for all subsequent tasks (hoorah!).
+Calling the user root here is not glib; by creating a user with full access to all IAM resources you really are creating a user with imperial authority to manage your AWS resources! Here this comes with all the usual caveats and warnings omitted but you can read about them elsewhere. After creating a root user you can kiss the web UI goodbye and use boto3 and python for all subsequent tasks (hoorah!). Simply download the user's *access key* and *secret access key* and you're good to go.
 
 ### Create New User
+Here we're going to connect to the IAM service with boto3 as `root` and create a new user.
 ```python
 code
 ```
-(explanation)
 
 ### Attach Access Policy to User
+Having created a new user connect to IAM and attach a set of permissions (encoded as a _policy_) to the recently created user.
 ```python
 
 ```
-(explanation)
 
 
 ## EC2
