@@ -39,8 +39,8 @@ Calling the user root here is not glib; by creating a user with full access to a
 ### Create New User
 Here we're going to connect to the IAM service with boto3 as `root` and create a new user.
 
-[create_new_user.py](https://github.com/roopsmall/amazon-web-services/blob/master/create_new_user.py)
 ```python
+# create_new_user.py
 import boto3, credentials
 id, psswd = credentials.id_and_psswd('user')
 client = boto3.client('iam', aws_access_key_id=id, aws_secret_access_key=psswd)
@@ -50,7 +50,14 @@ print client.create_user(Path='/Analyst/', UserName='new_user1')
 ### Attach Access Policy to User
 Having created a new user connect to IAM and attach a set of permissions (encoded as a _policy_) to the recently created user.
 ```python
-
+# add_policy_to_user.py
+import boto3, credentials
+id, psswd = credentials.id_and_psswd('username')
+client = boto3.client('iam',aws_access_key_id=id, aws_secret_access_key=psswd)
+policy_statement = open('policy_statement_1.txt').readlines()
+print client_put_user_policy(UserName='user_name_1',
+                                  PolicyName='EC2_Allow_All',
+                                  Policy_Document=policy_statment)
 ```
 
 
